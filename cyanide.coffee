@@ -1,5 +1,5 @@
 fs = require "fs"
-
+logger = require "./logger"
 stdout = fs.createWriteStream "/dev/stdout" # this probably a stupid idea
 
 Level =
@@ -9,25 +9,17 @@ Level =
     error: 3
     critical: 4
     
-class Logger
-
-    constructor:  ->
-        @handlers = []
-
-    log: (level, emitter, msg) ->
-        handler.handle(this, level, emitter, msg) for handler in @handlers
-
-    attachHandler: (handler) ->
-        @handlers.push handler
-
-    debug: (msg) ->
-         @log Level.debug, this, msg
-
 class Log
 
-    @root = new Logger
-    getLogger: () ->
-        @root
+    @rootLogger = new logger.Logger
+    
+    @getLogger: (path) ->
+        console.log @rootLooger
+        @rootLogger
+    
+    @attachHandler: (handler) ->
+        console.log @rootLooger
+        @rootLogger.attachHandler handler
 
 class Handler
         
@@ -50,7 +42,6 @@ class StdoutHandler extends StreamHandler
 
 exports.Level = Level
 exports.Log = Log
-exports.Logger = Logger
 exports.Handler = Handler
 exports.StreamHandler = StreamHandler
 exports.StdoutHandler = StdoutHandler
