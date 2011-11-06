@@ -1,3 +1,5 @@
+Formatter = require "./Formatter"
+
 class Handler
         
     handle: (logger, level, emitter, msg) ->
@@ -5,7 +7,15 @@ class Handler
         @send(logger, level, emitter, msg, formatted) # why msg+formatted?
 
 
-class StreamHandler extends Handler
+class ExtendedHandler extends Handler
+
+    constructor: (@formatter=new Formatter.Formatter) ->
+
+    handle: (logger, level, emitter, msg) ->
+        formatted = @formatter.format this, logger, level, emitter, msg
+        @send(logger, level, emitter, msg, formatted) # why msg+formatted?
+
+class StreamHandler extends ExtendedHandler
 
     send: (logger, level, emitter, msg, formatted) ->
         @stream.write formatted

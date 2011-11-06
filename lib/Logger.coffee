@@ -1,8 +1,10 @@
 Level = require ("./Level")
+
 class Logger
 
-    constructor:  ->
+    constructor: (@path="")  ->
         @handlers = []
+        formatter = null
 
     log: (level, emitter, msg) ->
         handler.handle(this, level, emitter, msg) for handler in @handlers

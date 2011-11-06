@@ -2,6 +2,7 @@ fs = require "fs"
 
 Handler = require "./Handler"
 Logger = require "./Logger"
+Formatter = require "./Formatter"
 
 class Log
     
@@ -20,3 +21,4 @@ class Log
 exports.Log = Log
 exports.StdoutHandler = Handler.StdoutHandler
 exports.StderrHandler = Handler.StderrHandler
+exports.NiceFormatter = Formatter.NiceFormatter
