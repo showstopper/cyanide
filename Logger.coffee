@@ -1,3 +1,4 @@
+Level = require ("./Level")
 class Logger
 
     constructor:  ->
@@ -10,6 +11,6 @@ class Logger
         @handlers.push handler
 
     debug: (msg) ->
-         @log Level.debug, this, msg
+         @log Level.Level.debug, this, msg
 
 exports.Logger = Logger
