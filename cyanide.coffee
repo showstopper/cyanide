@@ -1,6 +1,6 @@
 fs = require "fs"
-logger = require "./logger"
-stdout = fs.createWriteStream "/dev/stdout" # this probably a stupid idea
+Logger = require "./Logger"
+stdout = fs.createWriteStream "/dev/stdout" # this is probably a stupid idea
 
 Level =
     debug: 0
@@ -10,16 +10,15 @@ Level =
     critical: 4
     
 class Log
-
-    @rootLogger = new logger.Logger
     
+    @rootLogger: new Logger.Logger
     @getLogger: (path) ->
-        console.log @rootLooger
-        @rootLogger
+        console.log "rootLogger: #{Log.rootLooger}"
+        Log.rootLogger
     
     @attachHandler: (handler) ->
-        console.log @rootLooger
-        @rootLogger.attachHandler handler
+        console.log "rootLogger: #{Log.rootLooger}"
+        Log.rootLogger.attachHandler handler
 
 class Handler
         

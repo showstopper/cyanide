@@ -3,7 +3,8 @@ cyanide = require "./cyanide"
 consoleHandler = new cyanide.StdoutHandler
 
 cyanide.Log.attachHandler consoleHandler
+console.log cyanide.Log
 myLogger = cyanide.Log.getLogger ""
-
-myLogger.logger.attachHandler consoleHandler
-myLogger.logger.debug "FUCK YES"
+console.log myLogger
+myLogger.attachHandler consoleHandler
+myLogger.debug "FUCK YES"
