@@ -1,4 +1,4 @@
-cyanide = require "./cyanide"
+cyanide = require "./lib/cyanide"
 
 consoleHandler = new cyanide.StdoutHandler
 
@@ -7,4 +7,4 @@ console.log cyanide.Log
 myLogger = cyanide.Log.getLogger ""
 console.log myLogger
 myLogger.attachHandler consoleHandler
-myLogger.debug "FUCK YES"
+myLogger.debug "Debug"
