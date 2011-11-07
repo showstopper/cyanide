@@ -10,8 +10,8 @@ class Log
     @getLogger: (path) ->
         if path is ""
             Log.rootLogger
-        else # TODO: implement 'what else' (inheritance)
-            Log.rootLogger
+        else
+            Log.rootLogger.getSubLogger path
 
     @attachHandler: (handler) ->
         Log.rootLogger.attachHandler handler
@@ -19,6 +19,7 @@ class Log
 exports.Log = Log
 exports.StdoutHandler = Handler.StdoutHandler
 exports.StderrHandler = Handler.StderrHandler
+exports.FileHandler = Handler.FileHandler
 exports.NiceFormatter = Formatter.NiceFormatter
 exports.ColoredFormatter = Formatter.ColoredFormatter
 

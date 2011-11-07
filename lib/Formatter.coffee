@@ -24,7 +24,7 @@ class NiceFormatter
         map_ = {
             "level": Level.toString(level),
             "msg": msg,
-            "emitter": emitter.path,
+            "emitter": emitter.fullPath,
             "dateTime": new Date().toISOString()
         }
         formatTemplate @template, map_
