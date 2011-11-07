@@ -5,10 +5,9 @@ Logger = require "./Logger"
 Formatter = require "./Formatter"
 
 class Log
-    
     @rootLogger: new Logger.Logger
-    @getLogger: (path) ->
 
+    @getLogger: (path) ->
         if path is ""
             Log.rootLogger
         else # TODO: implement 'what else' (inheritance)
@@ -17,8 +16,9 @@ class Log
     @attachHandler: (handler) ->
         Log.rootLogger.attachHandler handler
 
-
 exports.Log = Log
 exports.StdoutHandler = Handler.StdoutHandler
 exports.StderrHandler = Handler.StderrHandler
 exports.NiceFormatter = Formatter.NiceFormatter
+exports.ColoredFormatter = Formatter.ColoredFormatter
+

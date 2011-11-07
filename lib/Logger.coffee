@@ -15,4 +15,16 @@ class Logger
     debug: (msg) ->
          @log Level.Level.debug, this, msg
 
+    info: (msg) ->
+         @log Level.Level.info, this, msg
+
+    warn: (msg) ->
+         @log Level.Level.warn, this, msg
+
+    error: (msg) ->
+         @log Level.Level.error, this, msg
+
+    critical: (msg) ->
+         @log Level.Level.critical, this, msg
+
 exports.Logger = Logger
