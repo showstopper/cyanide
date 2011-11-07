@@ -1,0 +1,12 @@
+{
+    "name": "cyanide",
+    "version": "0.1.0",
+    "description": "cyanide logs things",
+    "engines" : {
+        "node": ">=0.4.0"
+    },
+    "directories": {
+        "lib": "lib"
+    },
+    "main": "./lib/cyanide.coffee"
+}
